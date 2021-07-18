@@ -1,499 +1,504 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/movie_title"
-        style="@style/TextAppearance.Medium.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="The Bug Movie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/action_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/bg_round"
-        app:layoutDescription="@xml/movie_detail_scene"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title">
-
-        <View
-            android:id="@+id/review_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackground"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/director_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackground"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/rating_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackground"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/tags_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackground"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/review_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/review_text"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_circle"
-            app:tint="#FF8E39" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/review_text"
-            style="@style/TextAppearance.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="Good"
-            android:textColor="#445566"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/review_separator"
-            app:layout_constraintStart_toEndOf="@+id/review_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="30dp"
-            tools:text="Good" />
-
-        <ImageView
-            android:id="@+id/review_separator"
-            android:layout_width="4dp"
-            android:layout_height="4dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/director_icon"
-            app:layout_constraintStart_toEndOf="@+id/review_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#A1A1A1" />
-
-        <ImageView
-            android:id="@+id/director_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/director_text"
-            app:layout_constraintStart_toEndOf="@+id/review_separator"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_circle" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/director_text"
-            style="@style/TextAppearance.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="Fubla... / James Fra..."
-            android:textColor="#12344d"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/director_separator"
-            app:layout_constraintStart_toEndOf="@+id/director_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="30dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/director_text_full"
-            style="@style/TextAppearance.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:ellipsize="end"
-            android:importantForAccessibility="no"
-            android:singleLine="true"
-            android:text="Fublacious Association / James Fracois Bubblé"
-            android:textColor="#12344d"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBottom_toBottomOf="@+id/director_text"
-            app:layout_constraintEnd_toStartOf="@+id/drop_down"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@+id/director_text"
-            app:layout_constraintTop_toTopOf="@+id/director_text"
-            app:layout_constraintWidth_min="30dp" />
-
-        <ImageView
-            android:id="@+id/director_separator"
-            android:layout_width="4dp"
-            android:layout_height="4dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rating_icon"
-            app:layout_constraintStart_toEndOf="@+id/director_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#A1A1A1" />
-
-        <ImageView
-            android:id="@+id/rating_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rating_text"
-            app:layout_constraintStart_toEndOf="@+id/director_separator"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/rating_text"
-            style="@style/TextAppearance.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="7.5/10"
-            android:textColor="#12344d"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/drop_down"
-            app:layout_constraintStart_toEndOf="@+id/rating_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/drop_down"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="14dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_drop_down"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#A1A1A1" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_properties"
+        <TextView
+            android:id="@+id/movie_title"
             style="@style/TextAppearance.Medium.Headline6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:alpha="0"
-            android:importantForAccessibility="no"
-            android:text="Details"
-            android:textAlignment="viewStart"
-            android:textColor="#445566"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/drop_down"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_review"
-            style="@style/TextAppearance.Medium.Subtitle2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:importantForAccessibility="no"
-            android:text="Review"
-            android:textAlignment="viewStart"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="@+id/review_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/review_drop_down"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_drop_down"
-            app:layout_constraintBottom_toBottomOf="@+id/review_text"
-            app:layout_constraintStart_toEndOf="@+id/review_text"
-            app:layout_constraintTop_toTopOf="@+id/review_text"
-            app:tint="#555555" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_director"
-            style="@style/TextAppearance.Medium.Subtitle2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:importantForAccessibility="no"
-            android:text="Director"
-            android:textAlignment="viewStart"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="@+id/director_text"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/director_drop_down"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_drop_down"
-            app:layout_constraintBottom_toBottomOf="@+id/director_text_full"
-            app:layout_constraintStart_toEndOf="@+id/director_text_full"
-            app:layout_constraintTop_toTopOf="@+id/director_text_full"
-            app:tint="#555555" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_rating"
-            style="@style/TextAppearance.Medium.Subtitle2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:text="Rating"
-            android:textAlignment="viewStart"
-            app:layout_constraintStart_toStartOf="@+id/rating_text"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/rating_drop_down"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/ic_drop_down"
-            app:layout_constraintBottom_toBottomOf="@+id/rating_text"
-            app:layout_constraintStart_toEndOf="@+id/rating_text"
-            app:layout_constraintTop_toTopOf="@+id/rating_text"
-            app:tint="#555555" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_type"
-            style="@style/TextAppearance.Medium.Subtitle2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:importantForAccessibility="no"
-            android:text="Category"
-            android:textAlignment="viewStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/type_text"
-            style="@style/TextAppearance.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
-            android:ellipsize="end"
-            android:importantForAccessibility="no"
-            android:singleLine="true"
-            android:text="Animation, Comedy, Fantasy"
-            android:textColor="#12344d"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintTop_toTopOf="@id/rating_text" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title_tags"
-            style="@style/TextAppearance.Medium.Subtitle2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:importantForAccessibility="no"
-            android:text="Tags"
-            android:textAlignment="viewStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/tags_group"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:alpha="0"
-            android:importantForAccessibility="no"
+            android:layout_marginTop="16dp"
+            android:text="The Bug Movie"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/tags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="14dp"
-                android:importantForAccessibility="no"
-                app:chipSpacing="6dp"
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/action_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_round"
+            app:layoutDescription="@xml/movie_detail_scene"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movie_title">
+
+            <View
+                android:id="@+id/review_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackground"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tags_drop_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/director_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackground"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/rating_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackground"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/tags_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackground"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/review_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/review_text"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:singleLine="true">
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="anime" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="drama" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="tubular" />
-
-            </com.google.android.material.chip.ChipGroup>
-
-            <ImageView
-                android:id="@+id/tags_drop_down"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginEnd="16dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/ic_drop_down"
-                app:layout_constraintBottom_toBottomOf="@+id/tags"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tags"
-                app:layout_constraintTop_toTopOf="@+id/tags"
-                app:tint="#555555" />
+                app:srcCompat="@drawable/ic_circle"
+                app:tint="#FF8E39" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tags_text"
+                android:id="@+id/review_text"
                 style="@style/TextAppearance.Body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="11dp"
-                android:drawablePadding="6dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Good"
+                android:textColor="#445566"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/review_separator"
+                app:layout_constraintStart_toEndOf="@+id/review_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_min="30dp"
+                tools:text="Good" />
+
+            <ImageView
+                android:id="@+id/review_separator"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/director_icon"
+                app:layout_constraintStart_toEndOf="@+id/review_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#A1A1A1" />
+
+            <ImageView
+                android:id="@+id/director_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/director_text"
+                app:layout_constraintStart_toEndOf="@+id/review_separator"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_circle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/director_text"
+                style="@style/TextAppearance.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Fubla... / James Fra..."
+                android:textColor="#12344d"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/director_separator"
+                app:layout_constraintStart_toEndOf="@+id/director_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_min="30dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/director_text_full"
+                style="@style/TextAppearance.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
                 android:ellipsize="end"
                 android:importantForAccessibility="no"
                 android:singleLine="true"
-                android:text="- -"
-                android:textColor="#445566"
-                android:visibility="gone"
-                app:drawableTint="#555555"
+                android:text="Fublacious Association / James Fracois Bubblé"
+                android:textColor="#12344d"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@+id/director_text"
+                app:layout_constraintEnd_toStartOf="@+id/drop_down"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/director_text"
+                app:layout_constraintTop_toTopOf="@+id/director_text"
+                app:layout_constraintWidth_min="30dp" />
+
+            <ImageView
+                android:id="@+id/director_separator"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rating_icon"
+                app:layout_constraintStart_toEndOf="@+id/director_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#A1A1A1" />
+
+            <ImageView
+                android:id="@+id/rating_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rating_text"
+                app:layout_constraintStart_toEndOf="@+id/director_separator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rating_text"
+                style="@style/TextAppearance.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="7.5/10"
+                android:textColor="#12344d"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/drop_down"
+                app:layout_constraintStart_toEndOf="@+id/rating_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/drop_down"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="14dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_drop_down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#A1A1A1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_properties"
+                style="@style/TextAppearance.Medium.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                android:text="Details"
+                android:textAlignment="viewStart"
+                android:textColor="#445566"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/drop_down"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_review"
+                style="@style/TextAppearance.Medium.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                android:text="Review"
+                android:textAlignment="viewStart"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/review_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/review_drop_down"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_drop_down"
+                app:layout_constraintBottom_toBottomOf="@+id/review_text"
+                app:layout_constraintStart_toEndOf="@+id/review_text"
+                app:layout_constraintTop_toTopOf="@+id/review_text"
+                app:tint="#555555" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_director"
+                style="@style/TextAppearance.Medium.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                android:text="Director"
+                android:textAlignment="viewStart"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/director_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/director_drop_down"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_drop_down"
+                app:layout_constraintBottom_toBottomOf="@+id/director_text_full"
+                app:layout_constraintStart_toEndOf="@+id/director_text_full"
+                app:layout_constraintTop_toTopOf="@+id/director_text_full"
+                app:tint="#555555" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_rating"
+                style="@style/TextAppearance.Medium.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:text="Rating"
+                android:textAlignment="viewStart"
+                app:layout_constraintStart_toStartOf="@+id/rating_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/rating_drop_down"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_drop_down"
+                app:layout_constraintBottom_toBottomOf="@+id/rating_text"
+                app:layout_constraintStart_toEndOf="@+id/rating_text"
+                app:layout_constraintTop_toTopOf="@+id/rating_text"
+                app:tint="#555555" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_type"
+                style="@style/TextAppearance.Medium.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                android:text="Category"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/type_text"
+                style="@style/TextAppearance.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:ellipsize="end"
+                android:importantForAccessibility="no"
+                android:singleLine="true"
+                android:text="Animation, Comedy, Fantasy"
+                android:textColor="#12344d"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toTopOf="@id/rating_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title_tags"
+                style="@style/TextAppearance.Medium.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                android:text="Tags"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tags_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:alpha="0"
+                android:importantForAccessibility="no"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="14dp"
+                    android:importantForAccessibility="no"
+                    app:chipSpacing="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tags_drop_down"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:singleLine="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="anime" />
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="drama" />
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="tubular" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <ImageView
+                    android:id="@+id/tags_drop_down"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_drop_down"
+                    app:layout_constraintBottom_toBottomOf="@+id/tags"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tags"
+                    app:layout_constraintTop_toTopOf="@+id/tags"
+                    app:tint="#555555" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tags_text"
+                    style="@style/TextAppearance.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="11dp"
+                    android:drawablePadding="6dp"
+                    android:ellipsize="end"
+                    android:importantForAccessibility="no"
+                    android:singleLine="true"
+                    android:text="- -"
+                    android:textColor="#445566"
+                    android:visibility="gone"
+                    app:drawableTint="#555555"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_more_details"
+                style="@style/Widget.App.Button.Tertiary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:ellipsize="end"
+                android:importantForAccessibility="no"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:singleLine="true"
+                android:text="More Details"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Medium.Body2"
+                android:textColor="#556677"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_min="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.MoreDetailsButton"
+                app:strokeColor="#a1a1a1"
+                app:strokeWidth="0.5dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_more_details"
-            style="@style/Widget.App.Button.Tertiary"
+            <View
+                android:id="@+id/properties_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:importantForAccessibility="no"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_min="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <TextView
+            android:id="@+id/contents"
+            style="@style/TextAppearance.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:alpha="0"
-            android:ellipsize="end"
-            android:importantForAccessibility="no"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:singleLine="true"
-            android:text="More Details"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.Medium.Body2"
-            android:textColor="#556677"
-            app:layout_constrainedHeight="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="16dp"
+            android:text="An unhinged war veteran holes up with a lonely woman in a spooky Oklahoma motel room. The line between reality and delusion is blurred as they discover a bug infestation. An earthquake releases a strain of mutant cockroaches with the ability to start fires, which proceed to cause destructive chaos in a small town. The studies carried out by scientist James Parmiter, however, reveal an intent with much more far-reaching consequences."
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_min="48dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.MoreDetailsButton"
-            app:strokeColor="#a1a1a1"
-            app:strokeWidth="0.5dp" />
-
-        <View
-            android:id="@+id/properties_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_min="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
-
-    <TextView
-        android:id="@+id/contents"
-        style="@style/TextAppearance.Body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="An unhinged war veteran holes up with a lonely woman in a spooky Oklahoma motel room. The line between reality and delusion is blurred as they discover a bug infestation. An earthquake releases a strain of mutant cockroaches with the ability to start fires, which proceed to cause destructive chaos in a small town. The studies carried out by scientist James Parmiter, however, reveal an intent with much more far-reaching consequences."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/action_view" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/action_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
