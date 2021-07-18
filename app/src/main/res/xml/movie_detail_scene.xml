@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="300">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@+id/properties_container" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:translationX="30dp"
+                android:translationY="0dp"
+                app:framePosition="0"
+                app:motionTarget="@+id/title_properties" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="15"
+                app:motionTarget="@+id/review_separator" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="15"
+                app:motionTarget="@+id/director_separator" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="15"
+                app:motionTarget="@+id/director_icon" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="15"
+                app:motionTarget="@+id/rating_icon" />
+            <KeyAttribute
+                android:alpha="0"
+                android:translationX="50dp"
+                app:framePosition="85"
+                app:motionTarget="@+id/tags_group" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="85"
+                app:motionTarget="@+id/title_tags" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="85"
+                app:motionTarget="@+id/btn_more_details" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="50"
+                app:motionTarget="@+id/director_text" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="50"
+                app:motionTarget="@+id/director_text_full" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="40"
+                app:motionTarget="@+id/type_text" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="40"
+                app:motionTarget="@+id/title_type" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/review_drop_down">
+            <PropertySet
+                android:alpha="0"
+                app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/director_drop_down">
+            <PropertySet
+                android:alpha="0"
+                app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/rating_drop_down">
+            <PropertySet
+                android:alpha="0"
+                app:visibilityMode="ignore" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/title_properties"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="12dp"
+            android:alpha="1"
+            app:layout_constraintEnd_toStartOf="@+id/drop_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/title_review"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_properties" />
+
+        <Constraint
+            android:id="@+id/review_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/review_text"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_review" />
+
+        <Constraint
+            android:id="@+id/review_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/review_icon"
+            app:layout_constraintEnd_toStartOf="@+id/review_drop_down"
+            app:layout_constraintStart_toEndOf="@+id/review_icon"
+            app:layout_constraintTop_toTopOf="@+id/review_icon" />
+
+        <Constraint
+            android:id="@+id/review_drop_down"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="@+id/review_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/review_text"
+            app:layout_constraintTop_toTopOf="@+id/review_text" />
+
+        <Constraint
+            android:id="@+id/review_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="6dp"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@+id/title_properties"
+            app:layout_constraintStart_toEndOf="@+id/review_text"
+            app:layout_constraintTop_toTopOf="@+id/title_properties" />
+
+        <Constraint
+            android:id="@+id/director_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@+id/director_text"
+            app:layout_constraintEnd_toStartOf="@+id/director_text"
+            app:layout_constraintTop_toTopOf="@+id/director_text" />
+
+        <Constraint
+            android:id="@+id/title_director"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_icon" />
+
+        <Constraint
+            android:id="@+id/director_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/director_text_full"
+            app:layout_constraintStart_toStartOf="@+id/director_text_full"
+            app:layout_constraintTop_toTopOf="@+id/director_text_full" />
+
+        <Constraint
+            android:id="@+id/director_text_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:alpha="1"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/director_drop_down"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_director"
+            app:layout_constraintWidth_min="30dp" />
+
+        <Constraint
+            android:id="@+id/director_drop_down"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/director_text_full"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/director_text_full"
+            app:layout_constraintTop_toTopOf="@+id/director_text_full" />
+
+        <Constraint
+            android:id="@+id/director_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="6dp"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@+id/title_properties"
+            app:layout_constraintStart_toEndOf="@+id/director_text"
+            app:layout_constraintTop_toTopOf="@+id/title_properties" />
+
+        <Constraint
+            android:id="@+id/rating_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@+id/rating_text"
+            app:layout_constraintEnd_toStartOf="@+id/rating_text"
+            app:layout_constraintTop_toTopOf="@+id/rating_text" />
+
+        <Constraint
+            android:id="@+id/title_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/director_text_full" />
+
+        <Constraint
+            android:id="@+id/rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/rating_drop_down"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_rating" />
+
+        <Constraint
+            android:id="@+id/rating_drop_down"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rating_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rating_text"
+            app:layout_constraintTop_toTopOf="@+id/rating_text" />
+
+        <Constraint
+            android:id="@+id/title_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rating_text" />
+
+        <Constraint
+            android:id="@+id/type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_type" />
+
+        <Constraint
+            android:id="@+id/title_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_text" />
+
+        <Constraint
+            android:id="@+id/tags_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_tags" />
+
+        <Constraint
+            android:id="@+id/btn_more_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tags_container" />
+
+        <Constraint
+            android:id="@+id/drop_down"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="14dp"
+            android:rotation="180"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/properties_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/title_review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/review_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/title_director"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/properties_container" />
+
+        <Constraint
+            android:id="@+id/director_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/title_rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_container" />
+
+        <Constraint
+            android:id="@+id/rating_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="9dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/title_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/director_container" />
+
+        <Constraint
+            android:id="@+id/tags_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="9dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tags_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_text" />
+    </ConstraintSet>
+</MotionScene>
